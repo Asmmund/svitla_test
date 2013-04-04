@@ -1,0 +1,5 @@
+  <li class="corners">
+    <span class="start">Time start: <%= @campaign.get('time_start') %></span><span class="end" >Time end: <%= @campaign.get('time_end') %></span>
+    <h5>Info about countries/languages</h3>
+    <p><%= @campaign.get('info') %></p>
+  </li>

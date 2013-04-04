@@ -1,3 +1,27 @@
 <h1>Campaigns</h1>
+<form id="new_campaign" class="corners">
+  <p>
+    <label for="start" >Start time:</label>
+    <input type="text" id="start" name="start" autofocus="" length='30' maxlength='30' />
+  </p>
+  <p>
+    <label for="end" >End time:</label>
+    <input type="text" id="end" name="end"  length='30' maxlength='30' />
+  </p>
+ <div id='country_list'>
+ <h4>Info:</h4>
+  <p class="country_element">
+    Country
+    <input class='country'  id="country" />
+    Languages
+    <input  class="languages" id="languages" />
+  </p>
+  </div>
+  <a href='add_country.php' id="add_country">Add country</a>
+  <p>
+    <input type="submit" value="Create" />
+  </p>
+</form>
+<ul id="running_campaigns" class="list">
 
-<%= @campaigns %>
+</ul>

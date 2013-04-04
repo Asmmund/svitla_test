@@ -9,3 +9,4 @@ window.SvitlaTest =
 
 $(document).ready ->
   SvitlaTest.initialize()
+

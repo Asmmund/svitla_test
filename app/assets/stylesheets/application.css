@@ -11,3 +11,21 @@
  *= require_self
  *= require_tree .
  */
+ body {
+  background: lightgrey;
+ }
+ #container {
+  width: 800px;
+  margin: 0 auto;
+  background: white;
+ }
+ .corners {
+  border-radius: 15px;
+-moz-border-radius: 15px;
+-webkit-border-radius: 15px;
+border: 1px solid #800000;
+padding:5px;
+ }
+ @import jquery.ui.core
+@import jquery.ui.theme
+@import jquery.ui.datepicker
