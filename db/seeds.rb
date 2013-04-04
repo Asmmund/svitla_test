@@ -1,0 +1,1 @@
+Campaign.create! time_start: Time.now - 1.day, time_end:Time.now + 2.days, info: 'Seeds insert!'
