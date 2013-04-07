@@ -1,3 +1,12 @@
+<div class="float">
+  <a href="modal" id="modal">Show modal window!</a>
+</div>
+<div class="modal corners">
+  Henry VIII In 1513, the new king allied with the Holy Roman Emperor, Maximillian I, and invaded France in 1513 with a large, well-equipped army, but achieved little at a considerable financial cost. Maximillian, for his part, used the English invasion to his own ends, and this prejudiced England's ability to defeat the French. This foray would prove the start of an obsession for Henry, who invaded again in 1544.
+  <br />
+  <a href='close' class="close">Close</a>
+</div>
+
 <h1>Campaigns</h1>
 <form id="new_campaign" class="corners">
   <p>
