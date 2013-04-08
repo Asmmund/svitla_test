@@ -8,7 +8,7 @@
 </div>
 
 <h1>Campaigns</h1>
-<form id="new_campaign" class="corners">
+<form method="post" id="new_campaign" class="corners">
   <p>
     <label for="start" >Start time:</label>
     <input type="text" id="start" name="start" autofocus="" length='30' maxlength='30' />

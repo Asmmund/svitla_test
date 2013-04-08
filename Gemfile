@@ -16,7 +16,6 @@ group :assets do
   gem 'jquery-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 group :development,:test do
@@ -44,3 +43,4 @@ gem 'slim'
 # To use debugger
 # gem 'debugger'
 gem 'backbone-on-rails'
+gem "jquery-ui-rails"

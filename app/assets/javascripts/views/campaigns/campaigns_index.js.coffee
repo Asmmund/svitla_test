@@ -42,6 +42,7 @@ class SvitlaTest.Views.CampaignsIndex extends Backbone.View
       time_start: @$('#start').val()
       time_end: @$('#end').val()
     @collection.create attributes,
+      wait: true
       success: -> alert('created!')
       error: -> @handleError
 
