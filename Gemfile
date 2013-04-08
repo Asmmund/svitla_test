@@ -24,6 +24,7 @@ group :development,:test do
   gem 'shoulda'
   gem "factory_girl_rails", "~> 4.0"
   gem 'capybara'
+  gem 'launchy'
 end
 gem 'slim'
 

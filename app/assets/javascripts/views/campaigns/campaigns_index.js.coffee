@@ -14,7 +14,7 @@ class SvitlaTest.Views.CampaignsIndex extends Backbone.View
     e.preventDefault()
     $('.modal.corners').show()
   addCountry: (e) ->
-    new_element = '<p class="country_element">Country <input class="country" name="[info][]" /> Languages <input id="info1" class="languages" name="[info][]" /></p>'
+    new_element = '<p class="country_element">Country <input type="text" class="country" name="[info][]" /> Languages <input id="info1" class="languages" name="[info][]" /></p>'
     e.preventDefault()
     @$('#country_list').append(new_element)
   getCountries: (e)->
@@ -26,6 +26,11 @@ class SvitlaTest.Views.CampaignsIndex extends Backbone.View
     result = result.substring(0, result.length - 1)
     return result + ']}'
 
+  clearFields: (id) ->
+    console.log('Function called')
+    $('input[type="text"]', '#'+id).each ->
+      $(this).val('')
+
   validateForm: (id)->
     inputElements = $('form#'+id).find(':input')
     ret= true
@@ -33,6 +38,7 @@ class SvitlaTest.Views.CampaignsIndex extends Backbone.View
       ret = false  if $(this).val() is ""
     ret
   createCampaign: (e) ->
+    _this= @
     e.preventDefault()
     unless @validateForm("new_campaign")
       alert "All fields need to be filled!"
@@ -43,16 +49,18 @@ class SvitlaTest.Views.CampaignsIndex extends Backbone.View
       time_end: @$('#end').val()
     @collection.create attributes,
       wait: true
-      success: -> alert('created!')
+      success: ->
+        @$('#errors').text('Campaign created!').addClass('correct')
+        @$('#create').removeAttr('disabled');
+        _this.clearFields('new_campaign')
       error: -> @handleError
-
   handleError: (campaign,response) ->
     if response.status == 422
-      console.log '1'
+      @$('#create').removeAttr('disabled');
       errors = $.parseJSON( response.resonseText).errors
       for attribute, messages of errors
-        console.log '2'
-        alert "#{attribute} #{message}" for message in messages
+        errorText +=  "#{attribute} #{message} <br />" for message in messages
+      @$('#errors').html(errorText)
 
 
   initialize: ->

@@ -12,15 +12,16 @@ feature 'check campaign frontpage' ,  :js => true do
     visit '/'
     page.should have_content @c.info
   end
-  scenario 'check create field' do
+  xscenario 'check create field' do
     visit '/'
     within("#new_campaign") do
-      fill_in 'start', :with => @c.start
-      fill_in 'end', :with => @c.end
+      fill_in 'start', :with => '2013-04-08'
+      fill_in 'end', :with => '2013-04-010'
       fill_in 'country', :with => 'Norway'
       fill_in 'languages', :with => 'Norsk, English'
       click_button("Create")
     end
-    page.should have_content 'Norsk, English'
+    save_and_open_page
+    page.should have_content 'Campaign created!'
   end
 end

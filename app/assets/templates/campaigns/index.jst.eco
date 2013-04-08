@@ -6,7 +6,7 @@
   <br />
   <a href='close' class="close">Close</a>
 </div>
-
+<p id='errors'></p>
 <h1>Campaigns</h1>
 <form method="post" id="new_campaign" class="corners">
   <p>
@@ -21,14 +21,14 @@
  <h4>Info:</h4>
   <p class="country_element">
     Country
-    <input class='country'  id="country" />
+    <input type="text" class='country'  id="country" />
     Languages
-    <input  class="languages" id="languages" />
+    <input type="text" class="languages" id="languages" />
   </p>
   </div>
   <a href='add_country.php' id="add_country">Add country</a>
   <p>
-    <input type="submit" value="Create" />
+    <input type="submit" id="create" value="Create" />
   </p>
 </form>
 <ul id="running_campaigns" class="list">

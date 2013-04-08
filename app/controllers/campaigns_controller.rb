@@ -12,7 +12,7 @@ class CampaignsController < ApplicationController
     if campaign
       respond_with campaign, location: campaigns_path
     else
-      respond_with format.json { render json: { error: 'Error creating record!' }, status: 401  }, location: campaigns_path
+      respond_with format.json { render json: { error: 'Error creating record!' }, status: 422  }, location: campaigns_path
     end
   end
   def update

@@ -1,4 +1,5 @@
   <li class="corners">
+    <a class="delete" href="delete.php" title="delete campaign">X</a>
     <span class="start">Time start: <%= @campaign.get('time_start') %></span><span class="end" >Time end: <%= @campaign.get('time_end') %></span>
     <h5>Info about countries/languages</h3>
     <p><%= @campaign.get('info') %></p>

@@ -22,6 +22,12 @@
   div.float {
     float:right;
   }
+  #errors {
+    color:red;
+  }
+  .correct{
+    color:green !important;
+  }
   #new_campaign {
       margin: 0 40px;
     }
@@ -31,6 +37,12 @@
     li {
       margin: 10px 0;
       width: 90%;
+      a.delete {
+        float:right;
+        color:red;
+        font-weight: bold;
+
+      }
       span {
         margin: 0 10px;
       }
