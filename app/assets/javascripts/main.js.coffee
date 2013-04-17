@@ -7,5 +7,3 @@ jQuery ->
   $('input[type="submit"]').click ->
     $(this).attr('disabled', 'disabled')
     $(this).parents('form').submit()
-  # $('').datepicker
-    # dateFormat: 'yy-mm-dd'
