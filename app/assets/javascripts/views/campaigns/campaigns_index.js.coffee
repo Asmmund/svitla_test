@@ -27,7 +27,6 @@ class SvitlaTest.Views.CampaignsIndex extends Backbone.View
     return result + ']}'
 
   clearFields: (id) ->
-    console.log('Function called')
     $('input[type="text"]', '#'+id).each ->
       $(this).val('')
 
@@ -40,34 +39,42 @@ class SvitlaTest.Views.CampaignsIndex extends Backbone.View
   createCampaign: (e) ->
     _this= @
     e.preventDefault()
-    unless @validateForm("new_campaign")
-      alert "All fields need to be filled!"
-      return false
+    # unless @validateForm("new_campaign")
+    #   alert "All fields need to be filled!"
+    #   return false
     attributes =
       info: @getCountries()
       time_start: @$('#start').val()
       time_end: @$('#end').val()
     @collection.create attributes,
-      wait: true
+      # wait: true
       success: ->
+        console.log 'success'
         @$('#errors').text('Campaign created!').addClass('correct')
         @$('#create').removeAttr('disabled');
         _this.clearFields('new_campaign')
       error: -> @handleError
-  handleError: (campaign,response) ->
-    if response.status == 422
-      @$('#create').removeAttr('disabled');
-      errors = $.parseJSON( response.resonseText).errors
-      for attribute, messages of errors
-        errorText +=  "#{attribute} #{message} <br />" for message in messages
-      @$('#errors').html(errorText)
+  handleError: (campaign,error) ->
+    @$('#create').removeAttr('disabled');
+    @$('#errors').html(error)
+    # @$('#create').removeAttr('disabled');
+    # @$('#errors').html(error)
+    # if response.status == 422
+    #   @$('#create').removeAttr('disabled');
+    #   errors = $.parseJSON( response.resonseText).errors
+    #   for attribute, messages of errors
+    #     errorText +=  "#{attribute} #{message} <br />" for message in messages
+    #   @$('#errors').html(errorText)
 
 
   initialize: ->
     @collection.on('reset', @render,this)
     @collection.on('add', @appendCampaign ,this)
-
-
+    @collection.on( "invalid", @handleInvalidState)
+  handleInvalidState: (model, error) ->
+    console.log "validation"
+    console.log model
+    console.log error
   render: ->
     $(@el).html(@template())
     @collection.each(@appendCampaign)

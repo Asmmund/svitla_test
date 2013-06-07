@@ -8,12 +8,12 @@ class CampaignsController < ApplicationController
     respond_with Campaign.find( params[:id] )
   end
   def create
-    campaign = Campaign.create( params[:campaign] )
-    if campaign
-      respond_with campaign, location: campaigns_path
-    else
-      respond_with format.json { render json: { error: 'Error creating record!' }, status: 422  }, location: campaigns_path
-    end
+      respond_with Campaign.create( params[:campaign] )
+    # campaign =
+    # if campaign
+    # else
+    #   respond_with format.json { render json: { error: 'Error creating record!' }, status: 422  }, location: campaigns_path
+    # end
   end
   def update
     respond_with Campaign.update( params[:id], params[:campaign] )
